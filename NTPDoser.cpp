@@ -315,7 +315,7 @@ int main(int argc, char* argv[])
     printf("[threads]:    Number of threads.\n");
     printf("[time]:       The duration of the attack (default 30 seconds).\n\n");
     printf("Important:    This Program needs file \"ntp.list\" in current folder, which has some ntp server ip.\n");
-    printf("FBI warning:  Dont be evil ! plz conly use it for testing.\n");
+    printf("FBI warning:  Dont be evil ! plz only use it for testing.\n");
     return 0;
   }
   if(argc >= 4)
