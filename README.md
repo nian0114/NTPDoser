@@ -1,9 +1,11 @@
 NTP Doser
 ===
+
 Introduction.
 ===
 *NTP Doser* is a NTP Amplification DoS tool which code by C/C++.
 *NTP Doser* is just a pentesting tool , so don't be evil.
+
 Compiling.
 ===
     gcc NTPDoser.cpp -o NTPDoser -lstdc++
