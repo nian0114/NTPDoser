@@ -1,6 +1,7 @@
 /*
   NTP Doser Code By Drizzle. @2017
 */
+#include <stdio.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <iostream>
@@ -12,6 +13,7 @@
 #include <time.h>
 #include <netinet/ip.h>
 #include <netinet/if_ether.h>
+#define __FAVOR_BSD
 #include <netinet/udp.h>
 #include <arpa/inet.h>
 #include <pthread.h>
